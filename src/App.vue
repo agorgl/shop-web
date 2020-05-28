@@ -1,19 +1,21 @@
 <template>
   <div id="app">
     <div id="logo">
-      <img class="ui mini image" src="./assets/logo.png">
+      <img @click="toggleSidebar" class="ui mini image" src="./assets/logo.png">
     </div>
-    <div id="sidebar" class="ui borderless vertical icon compact menu">
-      <a class="item active teal">
-        <i class="address book grey icon"/>
-      </a>
-      <a class="item">
-        <i class="bell grey icon"/>
-      </a>
-      <a class="item">
-        <i class="wrench grey icon"/>
-      </a>
-    </div>
+    <transition name="sidebar-anim">
+      <div id="sidebar" class="ui borderless vertical icon compact menu" v-show="sidebarVisible">
+        <a class="item active teal">
+          <i class="address book grey icon"/>
+        </a>
+        <a class="item">
+          <i class="bell grey icon"/>
+        </a>
+        <a class="item">
+          <i class="wrench grey icon"/>
+        </a>
+      </div>
+    </transition>
     <div id="header">
       <div class="ui menu">
         <div class="item ui breadcrumb">
@@ -49,6 +51,16 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data: function() {
+    return {
+      sidebarVisible: true,
+    }
+  },
+  methods: {
+    toggleSidebar: function() {
+      this.sidebarVisible = !this.sidebarVisible;
+    }
   }
 }
 </script>
@@ -75,6 +87,10 @@ export default {
   box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
 }
 
+#logo img {
+  cursor: pointer;
+}
+
 #sidebar {
   border-radius: 0px;
   grid-area: sidebar;
@@ -88,6 +104,14 @@ export default {
 
 #sidebar a.item i.icon {
   margin: 6px 6px;
+}
+
+.sidebar-anim-enter-active, .sidebar-anim-leave-active {
+  transition: transform 0.3s;
+}
+
+.sidebar-anim-enter, .sidebar-anim-leave-to {
+  transform: translateX(-100%);
 }
 
 #header {

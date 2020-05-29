@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-#notifications {
+.notifications {
   display: flex;
   justify-content: center;
   align-content: center;

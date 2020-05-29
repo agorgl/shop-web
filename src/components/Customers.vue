@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-#customers {
+.customers {
   display: flex;
   justify-content: center;
   align-content: center;

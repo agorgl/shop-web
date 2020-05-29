@@ -36,21 +36,18 @@
       </div>
     </div>
     <div id="content">
-      <div id="vue">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
-      </div>
+      <vue-intro msg="Welcome to Your Vue.js App"/>
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VueIntro from './components/VueIntro.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    VueIntro
   },
   data: function() {
     return {
@@ -129,10 +126,5 @@ export default {
   display: block;
   overflow: auto;
   grid-area: content;
-}
-
-#vue {
-  text-align: center;
-  color: #2c3e50;
 }
 </style>

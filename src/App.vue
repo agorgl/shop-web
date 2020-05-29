@@ -32,7 +32,9 @@
       </div>
     </div>
     <div id="content">
-      <router-view></router-view>
+      <transition name="content-anim" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </template>
@@ -131,5 +133,13 @@ export default {
   display: block;
   overflow: auto;
   grid-area: content;
+}
+
+.content-anim-enter-active, .content-anim-leave-active {
+  transition: opacity .2s ease;
+}
+
+.content-anim-enter, .content-anim-leave-to {
+  opacity: 0;
 }
 </style>

@@ -5,15 +5,15 @@
     </div>
     <transition name="sidebar-anim">
       <div id="sidebar" class="ui borderless vertical icon compact menu" v-show="sidebarVisible">
-        <a class="item active teal">
+        <router-link :to="{ name: 'Customers' }" class="item" active-class="active teal">
           <i class="address book grey icon"/>
-        </a>
-        <a class="item">
+        </router-link>
+        <router-link :to="{ name: 'Notifications' }" class="item" active-class="active teal">
           <i class="bell grey icon"/>
-        </a>
-        <a class="item">
+        </router-link>
+        <router-link :to="{ name: 'Settings' }" class="item" active-class="active teal">
           <i class="wrench grey icon"/>
-        </a>
+        </router-link>
       </div>
     </transition>
     <div id="header">
@@ -36,19 +36,14 @@
       </div>
     </div>
     <div id="content">
-      <vue-intro msg="Welcome to Your Vue.js App"/>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import VueIntro from './components/VueIntro.vue'
-
 export default {
   name: 'App',
-  components: {
-    VueIntro
-  },
   data: function() {
     return {
       sidebarVisible: true,

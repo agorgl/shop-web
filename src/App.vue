@@ -5,14 +5,10 @@
     </div>
     <transition name="sidebar-anim">
       <div id="sidebar" class="ui borderless vertical icon compact menu" v-show="sidebarVisible">
-        <router-link :to="{ name: 'Customers' }" class="item" active-class="active teal">
-          <i class="address book grey icon"/>
-        </router-link>
-        <router-link :to="{ name: 'Notifications' }" class="item" active-class="active teal">
-          <i class="bell grey icon"/>
-        </router-link>
-        <router-link :to="{ name: 'Settings' }" class="item" active-class="active teal">
-          <i class="wrench grey icon"/>
+        <router-link v-for="item in sidebarItems"
+                     :item="item" :key="item.to" :to="{ name: item.to }"
+                     class="item" active-class="active teal">
+          <i :class="item.icon" class="grey icon"/>
         </router-link>
       </div>
     </transition>
@@ -47,6 +43,20 @@ export default {
   data: function() {
     return {
       sidebarVisible: true,
+      sidebarItems: [
+        {
+          'to': 'Customers',
+          'icon': 'address book',
+        },
+        {
+          'to': 'Notifications',
+          'icon': 'bell',
+        },
+        {
+          'to': 'Settings',
+          'icon': 'wrench',
+        },
+      ]
     }
   },
   methods: {

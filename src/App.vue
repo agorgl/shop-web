@@ -47,6 +47,10 @@ export default {
       sidebarVisible: true,
       sidebarItems: [
         {
+          'to': 'Home',
+          'icon': 'home',
+        },
+        {
           'to': 'Customers',
           'icon': 'address book',
         },

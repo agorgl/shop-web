@@ -3,15 +3,6 @@
     <div id="logo">
       <img @click="toggleSidebar" class="ui mini image" src="./assets/logo.png">
     </div>
-    <transition name="sidebar-anim">
-      <div id="sidebar" class="ui borderless vertical icon compact menu" v-show="sidebarVisible">
-        <router-link v-for="item in sidebarItems"
-                     :item="item" :key="item.to" :to="{ name: item.to }"
-                     class="item" active-class="active teal">
-          <i :class="item.icon" class="grey icon"/>
-        </router-link>
-      </div>
-    </transition>
     <div id="header">
       <div class="ui menu">
         <div class="item ui breadcrumb">
@@ -31,6 +22,15 @@
         </div>
       </div>
     </div>
+    <transition name="sidebar-anim">
+      <div id="sidebar" class="ui borderless vertical icon compact menu" v-show="sidebarVisible">
+        <router-link v-for="item in sidebarItems"
+                     :item="item" :key="item.to" :to="{ name: item.to }"
+                     class="item" active-class="active teal">
+          <i :class="item.icon" class="grey icon"/>
+        </router-link>
+      </div>
+    </transition>
     <div id="content">
       <transition name="content-anim" mode="out-in">
         <router-view></router-view>
